@@ -26,7 +26,6 @@ cp /home/centos/roboshop-scripting/shipping.service /etc/systemd/system/shipping
 echo -e "\e[35m>>>>>>>>>>>> load service<<<<<<<<<<<<\e[0m"
 systemctl daemon-reload
 systemctl enable shipping
-systemctl restart shipping
 echo -e "\e[35m>>>>>>>>>>>>install mysql<<<<<<<<<<<<\e[0m"
 yum install mysql -y
 echo -e "\e[35m>>>>>>>>>>>>load schema<<<<<<<<<<<<\e[0m"
