@@ -12,29 +12,29 @@ if [ -z "$rabbitmq_password"  ]; then
 
 fi
 
-fun_head setup erlang repo
+fun_head "setup erlang repo"
 
 curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash $>>log_file
 fun_stat_check
-fun_head setup rabbitmqrepo
+fun_head "setup rabbitmqrepo"
 
 curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash $>>log_file
 fun_stat_check
-fun_head install rabbitmq
+fun_head "install rabbitmq"
 
 yum install rabbitmq-server -y $>>log_file
 fun_stat_check
-fun_head restart rabbitmq
+fun_head "restart rabbitmq"
 
 systemctl enable rabbitmq-server $>>log_file
 fun_stat_check
 systemctl restart rabbitmq-server $>>log_file
 fun_stat_check
-fun_head add user
+fun_head "add user"
 
 rabbitmqctl add_user roboshop ${rabbitmq_password} $>>log_file
 fun_stat_check
-fun_head set password
+fun_head "set password"
 
 rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" $>>log_file
 fun_stat_check
