@@ -12,22 +12,29 @@ if [ -z "$rabbitmq_password"  ]; then
 
 fi
 
-echo -e "\e[35m>>>>>>>>>>>> setup erlang repo<<<<<<<<<<<<\e[0m"
+fun_head setup erlang repo
 
-curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash
-echo -e "\e[35m>>>>>>>>>>>> setup rabbitmqrepo<<<<<<<<<<<<\e[0m"
+curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | bash $>>log_file
+fun_stat_check
+fun_head setup rabbitmqrepo
 
-curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash
-echo -e "\e[35m>>>>>>>>>>>> install rabbitmq<<<<<<<<<<<<\e[0m"
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | bash $>>log_file
+fun_stat_check
+fun_head install rabbitmq
 
-yum install rabbitmq-server -y
-echo -e "\e[35m>>>>>>>>>>>> restart rabbitmq<<<<<<<<<<<<\e[0m"
+yum install rabbitmq-server -y $>>log_file
+fun_stat_check
+fun_head restart rabbitmq
 
-systemctl enable rabbitmq-server
-systemctl restart rabbitmq-server
-echo -e "\e[35m>>>>>>>>>>>> add user<<<<<<<<<<<<\e[0m"
+systemctl enable rabbitmq-server $>>log_file
+fun_stat_check
+systemctl restart rabbitmq-server $>>log_file
+fun_stat_check
+fun_head add user
 
-rabbitmqctl add_user roboshop ${rabbitmq_password}
-echo -e "\e[35m>>>>>>>>>>>> set password<<<<<<<<<<<<\e[0m"
+rabbitmqctl add_user roboshop ${rabbitmq_password} $>>log_file
+fun_stat_check
+fun_head set password
 
-rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
+rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" $>>log_file
+fun_stat_check
