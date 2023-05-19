@@ -12,6 +12,5 @@ echo -e "\e{35m>>>>>>>>>>>> extract frontend content<<<<<<<<<<<<\e[0m"
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 echo -e "\e{35m>>>>>>>>>>>> setup systemd service<<<<<<<<<<<<\e[0m"
-cp /home/centos/roboshop-scripting/roboshop.conf /etc/nginx/default.d/roboshop.conf
-echo -e "\e{35m>>>>>>>>>>>> restart nginx<<<<<<<<<<<<\e[0m"
+#echo -e "\e{35m>>>>>>>>>>>> restart nginx<<<<<<<<<<<<\e[0m"
 systemctl restart nginx
