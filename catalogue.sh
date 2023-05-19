@@ -3,7 +3,7 @@ script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
-
+component=catalogue
 fun_nodjs
 
 echo -e "\e[35m>>>>>>>>>>>> setup mongodb repo file <<<<<<<<<<<<\e[0m"
