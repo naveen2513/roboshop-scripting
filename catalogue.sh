@@ -24,7 +24,7 @@ echo -e "\e[35m>>>>>>>>>>>> start service<<<<<<<<<<<<\e[0m"
 systemctl enable catalogue
 systemctl start catalogue
 echo -e "\e[35m>>>>>>>>>>>> setup mongodb repo file <<<<<<<<<<<<\e[0m"
-cp home/centos/roboshop-scripting/mongo.repo /etc/yum.repos.d/mongo.repo
+cp /home/centos/roboshop-scripting/mongo.repo /etc/yum.repos.d/mongo.repo
 echo -e "\e[35m>>>>>>>>>>>> install mongodb<<<<<<<<<<<<\e[0m"
 
 yum install mongodb-org-shell -y
