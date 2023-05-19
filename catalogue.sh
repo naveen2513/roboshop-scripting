@@ -23,11 +23,13 @@ systemctl daemon-reload
 echo -e "\e[35m>>>>>>>>>>>> start service<<<<<<<<<<<<\e[0m"
 systemctl enable catalogue
 systemctl start catalogue
+echo -e "\e[35m>>>>>>>>>>>> setup mongodb repo file <<<<<<<<<<<<\e[0m"
+cp home/centos/roboshop-scripting/mongo.repo /etc/yum.repos.d/mongo.repo
 echo -e "\e[35m>>>>>>>>>>>> install mongodb<<<<<<<<<<<<\e[0m"
 
 yum install mongodb-org-shell -y
 echo -e "\e[35m>>>>>>>>>>>> load schema<<<<<<<<<<<<\e[0m"
-mongo --host MONGODB-SERVER-IPADDRESS </app/schema/catalogue.js
+mongo --host mongodb.naveendevops2.online </app/schema/catalogue.js
 
 
 
