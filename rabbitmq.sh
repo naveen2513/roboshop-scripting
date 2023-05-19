@@ -1,5 +1,5 @@
 rabbitmq_password=$1
-if [ -z "${rabbitmq_password}"  ]; then
+if [ -z "$rabbitmq_password"  ]; then
   echo password missing
   exit 1
 
