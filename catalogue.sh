@@ -12,7 +12,7 @@ echo -e "\e[35m>>>>>>>>>>>> download app content<<<<<<<<<<<<\e[0m"
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
 cd /app
 echo -e "\e[35m>>>>>>>>>>>> extract content<<<<<<<<<<<<\e[0m"
-curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
+unzip /tmp/catalogue.zip
 echo -e  "\e[35m>>>>>>>>>>>> download dependencies<<<<<<<<<<<<\e[0m"
 npm install
 echo -e "\e[35m>>>>>>>>>>>> setup systemd service<<<<<<<<<<<<\e[0m"
