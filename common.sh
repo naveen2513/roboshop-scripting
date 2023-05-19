@@ -37,6 +37,6 @@ fun_schema() {
 
   yum install mongodb-org-shell -y
   echo -e "\e[35m>>>>>>>>>>>> load schema<<<<<<<<<<<<\e[0m"
-  mongo --host mongodb.naveendevops2.online </app/schema/catalogue.js
+  mongo --host mongodb.naveendevops2.online </app/schema/${component}.js
 
 }
