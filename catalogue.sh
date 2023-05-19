@@ -14,7 +14,6 @@ cd /app
 echo -e "\e[35m>>>>>>>>>>>> extract content<<<<<<<<<<<<\e[0m"
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
 echo -e  "\e[35m>>>>>>>>>>>> download dependencies<<<<<<<<<<<<\e[0m"
-cd /app
 npm install
 echo -e "\e[35m>>>>>>>>>>>> setup systemd service<<<<<<<<<<<<\e[0m"
 cp /home/centos/roboshop-scripting/catalogue.service /etc/systemd/system/catalogue.service
