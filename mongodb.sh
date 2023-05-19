@@ -1,4 +1,9 @@
-echo -e "\e[35m>>>>>>>>>>>> setup mongo repo file<<<<<<<<<<<<\e[0m"
+app_user=roboshop
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
+
 cp /home/centos/roboshop-scripting/mongo.repo /etc/yum.repos.d/mongo.repo
 echo -e "\e[35m>>>>>>>>>>>> install mongo<<<<<<<<<<<<\e[0m"
 yum install mongodb-org -y

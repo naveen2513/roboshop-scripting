@@ -1,3 +1,10 @@
+app_user=roboshop
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
+
+
 echo -e "\e[35m>>>>>>>>>>>> setup redis repo file<<<<<<<<<<<<\e[0m"
 yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
 echo -e "\e[35m>>>>>>>>>>>> enable redis 6.2 package<<<<<<<<<<<<\e[0m"

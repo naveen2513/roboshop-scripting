@@ -1,3 +1,10 @@
+app_user=roboshop
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
+
+
 rabbitmq_password=$1
 if [ -z "$rabbitmq_password"  ]; then
   echo password missing
@@ -8,7 +15,7 @@ echo -e "\e[35m>>>>>>>>>>>> install python36<<<<<<<<<<<<\e[0m"
 yum install python36 gcc python3-devel -y
 echo -e "\e[35m>>>>>>>>>>>> install python36<<<<<<<<<<<<\e[0m"
 
-useradd roboshop
+useradd ${app_user}
 echo -e "\e[35m>>>>>>>>>>>> create app directory<<<<<<<<<<<<\e[0m"
 
 rm -rf /app

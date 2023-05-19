@@ -1,10 +1,16 @@
-echo -e "\e[35m>>>>>>>>>>>> setup nodejs repo file<<<<<<<<<<<<\e[0m"
+app_user=roboshop
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
+
+
 
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 echo -e "\e[35m>>>>>>>>>>>> install nodejs<<<<<<<<<<<<\e[0m"
 yum install nodejs -y
 echo -e "\e[35m>>>>>>>>>>>> add applicant user<<<<<<<<<<<<\e[0m"
-useradd roboshop
+useradd $[app_user
 echo -e "\e[35m>>>>>>>>>>>> create app directory<<<<<<<<<<<<\e[0m"
 rm -rf /app
 mkdir /app

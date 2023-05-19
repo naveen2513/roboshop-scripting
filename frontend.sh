@@ -1,3 +1,9 @@
+app_user=roboshop
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
+
+
 echo -e "\e[35m>>>>>>>>>>>> install nginx<<<<<<<<<<<<\e[0m"
 yum install nginx -y
 echo -e "\e[35m>>>>>>>>>>>> start nginx<<<<<<<<<<<<\e[0m"
