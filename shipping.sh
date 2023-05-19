@@ -23,9 +23,7 @@ echo -e "\e[35m>>>>>>>>>>>> build application<<<<<<<<<<<<\e[0m"
 mv target/shipping-1.0.jar shipping.jar
 echo -e "\e[35m>>>>>>>>>>>> setup systemd setup<<<<<<<<<<<<\e[0m"
 cp /home/centos/roboshop-scripting/shipping.service /etc/systemd/system/shipping.service
-echo -e "\e[35m>>>>>>>>>>>> load service<<<<<<<<<<<<\e[0m"
-systemctl daemon-reload
-systemctl enable shipping
+
 echo -e "\e[35m>>>>>>>>>>>>install mysql<<<<<<<<<<<<\e[0m"
 yum install mysql -y
 echo -e "\e[35m>>>>>>>>>>>>load schema<<<<<<<<<<<<\e[0m"
