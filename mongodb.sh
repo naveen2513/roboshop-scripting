@@ -4,7 +4,7 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
 fun_head  "mongo repo file"
-cp /home/centos/roboshop-scripting/mongo.repo /etc/yum.repos.d/mongo.repo $>>log_file
+cp /home/centos/roboshop-scripting/mongo.repo /etc/yum.repos.d/mongo.repo  $>>log_file
 fun_stat_check $?
 fun_head "install mongo"
 yum install mongodb-org -y $>>log_file
