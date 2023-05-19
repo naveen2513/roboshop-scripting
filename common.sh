@@ -8,11 +8,12 @@ fun_head () {
 
 }
 fun_stat_check () {
-  if [ $1 -eq 0]; then
-    echo  -e "\e[35msucess\e[0m"
+  if [ $1 -eq 0 ]; then
+    echo  -e "\e[34msucess\e[0m"
   else
-    echo -e "\e[35mrrefer the file /tmp/roboshop.log for the information"
-      
+     echo -e "\e[34mfailure\e[0m"
+     echo "refer the file /tmp/roboshop.log for the information"
+     exit 1
   fi
 }
 fun_nodjs () {
