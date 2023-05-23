@@ -9,4 +9,5 @@ if [ -z "${rabbitmq_password}" ]; then
 fi
 
 component=payment
+
 func_python
