@@ -1,30 +1,30 @@
-app_user=roboshop
 script=$(realpath "$0")
 script_path=$(dirname "$script")
 source ${script_path}/common.sh
 
 
-fun_head "install nginx"
-yum install nginx -y &>>logfile
-fun_stat_check $?
-fun_head "start nginx"
-systemctl enable nginx
-systemctl start nginx &>>logfile
-fun_stat_check $?
-fun_head "remove default content"
-rm -rf /usr/share/nginx/html/* &>>logfile
-fun_stat_check $?
-fun_head "download app content"
+func_print_head "Install Nginx"
+yum install nginx -y &>>$log_file
+func_stat_check $?
 
-curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>logfile
-fun_stat_check $?
-fun_head "extract content"
-cd /usr/share/nginx/html &>>logfile
-unzip /tmp/frontend.zip &>>logfile
-fun_stat_check $?
-fun_head 'setup configuration'
-cp /home/centos/roboshop-scripting/roboshop.conf /etc/nginx/default.d/roboshop.conf &>>logfile
-fun_stat_check $?
-fun_head "start nginx "
-systemctl restart nginx &>>logfile
-fun_stat_check $?
+func_print_head "Copy roboshop Config file"
+cp roboshop.conf /etc/nginx/default.d/roboshop.conf &>>$log_file
+func_stat_check $?
+
+func_print_head "Clean Old App content"
+rm -rf /usr/share/nginx/html/* &>>$log_file
+func_stat_check $?
+
+func_print_head "Download App Content"
+curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>$log_file
+func_stat_check $?
+
+func_print_head "Extracting App Content"
+cd /usr/share/nginx/html &>>$log_file
+unzip /tmp/frontend.zip &>>$log_file
+func_stat_check $?
+
+func_print_head "Start Nginx"
+systemctl enable nginx &>>$log_file
+systemctl restart nginx &>>$log_file
+func_stat_check $?
