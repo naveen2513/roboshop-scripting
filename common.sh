@@ -94,9 +94,9 @@ func_nodejs() {
   func_print_head "Install NodeJS Dependencies"
   npm install &>>$log_file
   func_stat_check $?
-
-  func_schema_setup
   func_systemd_setup
+  func_schema_setup
+
 }
 
 func_java() {
