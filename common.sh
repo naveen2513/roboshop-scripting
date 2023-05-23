@@ -21,7 +21,7 @@ func_stat_check() {
 }
 
 func_schema_setup() {
-  if [ "$schema_setup" == "mongo" ]; then
+  if [ "${schema_setup}" == "mongo" ]; then
     func_print_head "Copy MongoDB repo"
     cp ${script_path}/mongo.repo /etc/yum.repos.d/mongo.repo &>>$log_file
     func_stat_check $?
@@ -40,7 +40,7 @@ func_schema_setup() {
     func_stat_check $?
 
     func_print_head "Load Schema"
-    mysql -h mysql.naveendevop2.online -uroot -p${mysql_root_password} < /app/schema/shipping.sql &>>$log_file
+    mysql -h mysql.naveendevops2.online -uroot -p${mysql_root_password} < /app/schema/shipping.sql &>>$log_file
     func_stat_check $?
   fi
 }
@@ -94,9 +94,9 @@ func_nodejs() {
   func_print_head "Install NodeJS Dependencies"
   npm install &>>$log_file
   func_stat_check $?
-  func_systemd_setup
-  func_schema_setup
 
+  func_schema_setup
+  func_systemd_setup
 }
 
 func_java() {
