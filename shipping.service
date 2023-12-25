@@ -3,7 +3,7 @@ Description=Shipping Service
 
 [Service]
 User=roboshop
-Environment=CART_ENDPOINT=cart-dev.naveendevops1.online:8080
+Environment=CART_ENDPOINT=cart-dev.naveendevops3.online:8080
 Environment=DB_HOST=mysql-dev.naveendevops1.online
 ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
